@@ -1,4 +1,4 @@
-import ContactCTA from '../components/contact.jsx'
+import ContactCTA from '../components/Contact.jsx'
 
 export default function Contact() {
   return (
