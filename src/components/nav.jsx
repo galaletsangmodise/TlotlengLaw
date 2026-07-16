@@ -11,6 +11,7 @@ export default function Nav() {
           <Link to="/" className="hover:text-ember transition-colors">Home</Link>
           <Link to="/about" className="hover:text-ember transition-colors">About</Link>
           <Link to="/services" className="hover:text-ember transition-colors">Services</Link>
+          <Link to="/blog" className="hover:text-ember transition-colors">Blog</Link>
           <Link to="/contact" className="hover:text-ember transition-colors">Contact</Link>
         </nav>
         <Link
