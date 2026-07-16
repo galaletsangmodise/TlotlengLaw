@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Hero() {
   return (
     <section className="bg-charcoal text-offwhite">
@@ -14,18 +16,18 @@ export default function Hero() {
           rulings before the bench did.
         </p>
         <div className="flex gap-4 mt-10">
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="bg-ember text-offwhite px-7 py-3 font-body text-sm hover:opacity-90 transition-opacity"
           >
             Book a Consultation
-          </a>
-          <a
-            href="/about"
+          </Link>
+          <Link
+            to="/about"
             className="border border-stone/40 text-offwhite px-7 py-3 font-body text-sm hover:border-ember transition-colors"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
     </section>

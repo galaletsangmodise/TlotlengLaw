@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function About() {
   return (
     <section className="bg-offwhite py-24 md:py-32">
@@ -26,12 +28,12 @@ export default function About() {
             correctly call every Constitutional Court ruling in South
             Africa's first Con Court Fantasy League.
           </p>
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="border border-charcoal/30 text-charcoal px-7 py-3 font-body text-sm hover:border-ember hover:text-ember transition-colors inline-block"
           >
             More About the Firm
-          </a>
+          </Link>
         </div>
       </div>
     </section>
