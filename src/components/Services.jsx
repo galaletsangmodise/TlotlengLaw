@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion'
+import {
+  Scale, Car, Users, Home, HeartPulse, ScrollText, ShieldAlert, Briefcase,
+} from 'lucide-react'
 import { services } from '../data/services'
+
+const icons = { Scale, Car, Users, Home, HeartPulse, ScrollText, ShieldAlert, Briefcase }
 
 const container = {
   hidden: {},
@@ -28,23 +33,34 @@ export default function Services() {
           viewport={{ once: true, amount: 0.15 }}
           className="grid md:grid-cols-3 gap-px bg-mist/10"
         >
-          {services.map((service) => (
-            <motion.a
-              key={service.slug}
-              href={`/services#${service.slug}`}
-              variants={item}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="bg-navy p-8 block hover:bg-navy-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light"
-            >
-              <h3 className="font-display text-xl text-ivory mb-3">
-                {service.title}
-              </h3>
-              <p className="font-body text-mist text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </motion.a>
-          ))}
+          {services.map((service) => {
+            const Icon = icons[service.icon]
+            return (
+              <motion.a
+                key={service.slug}
+                href={`/services#${service.slug}`}
+                variants={item}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+                className="bg-navy p-8 block hover:bg-navy-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light"
+              >
+                {Icon && (
+                  <Icon
+                    className="text-accent-light mb-4"
+                    size={28}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                )}
+                <h3 className="font-display text-xl text-ivory mb-3">
+                  {service.title}
+                </h3>
+                <p className="font-body text-mist text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </motion.a>
+            )
+          })}
         </motion.div>
       </div>
     </section>

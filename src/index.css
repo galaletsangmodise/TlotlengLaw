@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Primary dark surfaces */
+  /* Primary dark surfaces  */
   --color-navy: #0F1E3D;
   --color-navy-deep: #0A1428;
   --color-navy-light: #1A2E56;
@@ -12,7 +12,7 @@
   /* Cool blue-grey  */
   --color-mist: #C6CEDC;
 
-  /* Accent */
+  /* Accent  */
   --color-accent: #3E5C8A;
   --color-accent-light: #7B9BC9;
 

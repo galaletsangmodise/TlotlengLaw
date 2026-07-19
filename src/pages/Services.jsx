@@ -1,7 +1,12 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import {
+  Scale, Car, Users, Home, HeartPulse, ScrollText, ShieldAlert, Briefcase,
+} from 'lucide-react'
 import { services } from '../data/services'
+
+const icons = { Scale, Car, Users, Home, HeartPulse, ScrollText, ShieldAlert, Briefcase }
 
 const container = {
   hidden: {},
@@ -20,7 +25,6 @@ export default function Services() {
     if (!location.hash) return
     const el = document.getElementById(location.hash.slice(1))
     if (el) {
-      // small delay lets the page finish its entrance transition first
       const t = setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
       return () => clearTimeout(t)
     }
@@ -57,21 +61,32 @@ export default function Services() {
           viewport={{ once: true, amount: 0.1 }}
           className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-px bg-navy/10"
         >
-          {services.map((service) => (
-            <motion.div
-              key={service.slug}
-              id={service.slug}
-              variants={item}
-              className="bg-ivory p-10 scroll-mt-24"
-            >
-              <h2 className="font-display text-2xl text-navy mb-3">
-                {service.title}
-              </h2>
-              <p className="font-body text-navy/70 leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
+          {services.map((service) => {
+            const Icon = icons[service.icon]
+            return (
+              <motion.div
+                key={service.slug}
+                id={service.slug}
+                variants={item}
+                className="bg-ivory p-10 scroll-mt-24"
+              >
+                {Icon && (
+                  <Icon
+                    className="text-accent mb-4"
+                    size={32}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                )}
+                <h2 className="font-display text-2xl text-navy mb-3">
+                  {service.title}
+                </h2>
+                <p className="font-body text-navy/70 leading-relaxed">
+                  {service.description}
+                </p>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </section>
     </div>
