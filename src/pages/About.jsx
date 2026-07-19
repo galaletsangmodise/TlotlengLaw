@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import ImagePlaceholder from '../components/ImagePlaceholder'
-import myPhoto from '../assets/images/Law1.jpeg'
 
 export default function About() {
   return (
@@ -42,7 +41,7 @@ export default function About() {
             </p>
             <p className="font-body text-navy/80 leading-relaxed mb-6 text-lg">
               His approach is direct, thorough, and grounded in a genuine
-              command of the law, the same instinct that led him to correctly
+              command of the law — the same instinct that led him to correctly
               call every Constitutional Court ruling in South Africa's first
               Con Court Fantasy League.
             </p>
@@ -59,7 +58,10 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <img src={myPhoto} alt="Describe the image" className="aspect-[4/5] w-full object-cover" />
+            <ImagePlaceholder
+              label="About page image — office, team, or a second attorney photo (see ImagePlaceholder.jsx)"
+              className="aspect-[4/5] w-full"
+            />
           </motion.div>
         </div>
       </section>

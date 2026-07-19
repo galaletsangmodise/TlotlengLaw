@@ -39,8 +39,7 @@ export default function Hero() {
             variants={item}
             className="font-display text-5xl md:text-6xl leading-tight"
           >
-            AWARD WINNING ATTORNEY.
-          
+            Justice, argued with precision.
           </motion.h1>
           <motion.p
             variants={item}
@@ -71,7 +70,10 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
         >
-          <img src={myPhoto} alt="Describe the image" className="aspect-[4/5] w-full object-cover" />
+          <ImagePlaceholder
+            label="Hero image — swap in your photo (see ImagePlaceholder.jsx for the two-line change)"
+            className="aspect-[4/5] w-full"
+          />
         </motion.div>
       </div>
     </section>
