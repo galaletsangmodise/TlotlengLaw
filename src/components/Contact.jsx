@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function ContactCTA() {
   const [status, setStatus] = useState('idle')
@@ -28,15 +29,21 @@ export default function ContactCTA() {
   }
 
   return (
-    <section className="bg-charcoal py-24 md:py-32">
-      <div className="max-w-2xl mx-auto px-6">
-        <p className="font-body text-ember text-sm tracking-widest uppercase mb-4 text-center">
+    <section className="bg-navy py-24 md:py-32">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="max-w-2xl mx-auto px-6"
+      >
+        <p className="font-body text-accent-light text-sm tracking-widest uppercase mb-4 text-center">
           Get In Touch
         </p>
-        <h2 className="font-display text-4xl text-offwhite mb-4 text-center">
+        <h2 className="font-display text-4xl text-ivory mb-4 text-center">
           Book a Consultation
         </h2>
-        <p className="font-body text-stone text-center mb-12">
+        <p className="font-body text-mist text-center mb-12">
           Tell us briefly what's going on — we'll be in touch to arrange next steps.
         </p>
 
@@ -46,53 +53,81 @@ export default function ContactCTA() {
           onSubmit={handleSubmit}
           className="space-y-5"
         >
+          {/* Honeypot — hidden from real users, catches bots. Never remove. */}
           <input
             type="text"
-            name="name"
-            placeholder="Full Name"
-            required
-            className="w-full bg-offwhite/5 border border-stone/30 text-offwhite px-4 py-3 font-body placeholder:text-stone/60 focus:outline-none focus:border-ember"
+            name="_gotcha"
+            tabIndex="-1"
+            autoComplete="off"
+            className="sr-only"
+            aria-hidden="true"
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            required
-            className="w-full bg-offwhite/5 border border-stone/30 text-offwhite px-4 py-3 font-body placeholder:text-stone/60 focus:outline-none focus:border-ember"
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            className="w-full bg-offwhite/5 border border-stone/30 text-offwhite px-4 py-3 font-body placeholder:text-stone/60 focus:outline-none focus:border-ember"
-          />
-          <textarea
-            name="message"
-            placeholder="Briefly describe your legal matter"
-            rows={4}
-            required
-            className="w-full bg-offwhite/5 border border-stone/30 text-offwhite px-4 py-3 font-body placeholder:text-stone/60 focus:outline-none focus:border-ember"
-          />
+
+          <div>
+            <label htmlFor="name" className="sr-only">Full Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              required
+              className="w-full bg-ivory/5 border border-mist/30 text-ivory px-4 py-3 font-body placeholder:text-mist/60 focus:outline-none focus:border-accent-light"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="sr-only">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+              className="w-full bg-ivory/5 border border-mist/30 text-ivory px-4 py-3 font-body placeholder:text-mist/60 focus:outline-none focus:border-accent-light"
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className="sr-only">Phone Number</label>
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              className="w-full bg-ivory/5 border border-mist/30 text-ivory px-4 py-3 font-body placeholder:text-mist/60 focus:outline-none focus:border-accent-light"
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="sr-only">Briefly describe your legal matter</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Briefly describe your legal matter"
+              rows={4}
+              required
+              className="w-full bg-ivory/5 border border-mist/30 text-ivory px-4 py-3 font-body placeholder:text-mist/60 focus:outline-none focus:border-accent-light"
+            />
+          </div>
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="w-full bg-ember text-offwhite py-3 font-body text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="w-full bg-accent text-ivory py-3 font-body text-sm hover:bg-accent-light transition-colors disabled:opacity-50"
           >
             {status === 'sending' ? 'Sending...' : 'Send Message'}
           </button>
 
-          {status === 'success' && (
-            <p className="font-body text-sm text-center text-ember">
-              Message sent — we'll be in touch shortly.
-            </p>
-          )}
-          {status === 'error' && (
-            <p className="font-body text-sm text-center text-red-400">
-              Something went wrong. Please try again.
-            </p>
-          )}
+          <div aria-live="polite">
+            {status === 'success' && (
+              <p className="font-body text-sm text-center text-accent-light">
+                Message sent — we'll be in touch shortly.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="font-body text-sm text-center text-red-400">
+                Something went wrong. Please try again.
+              </p>
+            )}
+          </div>
         </form>
-      </div>
+      </motion.div>
     </section>
   )
 }

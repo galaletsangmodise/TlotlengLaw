@@ -1,20 +1,38 @@
+import { motion } from 'framer-motion'
+
 const stats = [
   { number: "1st", label: "To sweep the Con Court Fantasy League" },
-  { number: "6+", label: "Practice areas covered" },
+  { number: "8", label: "Practice areas covered" },
   { number: "100%", label: "Client-focused representation" },
 ]
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
 export default function StatsBar() {
   return (
-    <section className="bg-stone py-16">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+    <section className="bg-mist py-16">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+        className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center"
+      >
         {stats.map((stat) => (
-          <div key={stat.label}>
-            <p className="font-display text-4xl text-charcoal">{stat.number}</p>
-            <p className="font-body text-sm text-charcoal/70 mt-2">{stat.label}</p>
-          </div>
+          <motion.div key={stat.label} variants={item}>
+            <p className="font-display text-4xl text-navy">{stat.number}</p>
+            <p className="font-body text-sm text-navy/70 mt-2">{stat.label}</p>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }
