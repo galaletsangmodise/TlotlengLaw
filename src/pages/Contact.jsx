@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import ContactCTA from '../components/Contact.jsx'
+import Map from '../components/Map.jsx'
 
 export default function Contact() {
   return (
@@ -25,6 +26,7 @@ export default function Contact() {
         </div>
       </section>
       <ContactCTA />
+      <Map />
     </div>
   )
 }

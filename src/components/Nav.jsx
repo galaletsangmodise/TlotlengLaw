@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import logo from '../assets/hero.png'
+import logo from '../assets/images/logo.jpeg'
 
 const links = [
   { to: '/', label: 'Home' },

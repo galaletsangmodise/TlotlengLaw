@@ -53,7 +53,7 @@ export default function ContactCTA() {
           onSubmit={handleSubmit}
           className="space-y-5"
         >
-          {/* Honeypot — hidden from real users, catches bots. Never remove. */}
+          {/* Honeypot — hidden from real users, catches bots. */}
           <input
             type="text"
             name="_gotcha"
