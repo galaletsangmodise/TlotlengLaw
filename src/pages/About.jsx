@@ -58,10 +58,11 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <ImagePlaceholder
-              label="About page image — office, team, or a second attorney photo (see ImagePlaceholder.jsx)"
-              className="aspect-[4/5] w-full"
-            />
+            <img
+                                  src={ImagePlaceholder}
+                                  alt="Tshepo Tlotleng, founder and head attorney (placeholder — final portrait pending)"
+                                  className="w-full h-full object-cover"
+                                />
           </motion.div>
         </div>
       </section>
