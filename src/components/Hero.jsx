@@ -39,13 +39,13 @@ export default function Hero() {
             variants={item}
             className="font-display text-5xl md:text-6xl leading-tight"
           >
-            Justice, argued with precision.
+            AWARD WINNING ATTORNEY.
           </motion.h1>
           <motion.p
             variants={item}
             className="font-body text-mist text-lg mt-6 max-w-xl"
           >
-            Full-service legal representation across South Africa — founded by
+            Full-service legal representation across South Africa founded by
             the lawyer who correctly predicted all 11 Constitutional Court
             rulings before the bench did.
           </motion.p>
@@ -70,10 +70,11 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
         >
-          <ImagePlaceholder
-            label="Hero image — swap in your photo (see ImagePlaceholder.jsx for the two-line change)"
-            className="aspect-[4/5] w-full"
-          />
+          <img
+                      src={myPhoto}
+                      alt="Tshepo Tlotleng, founder and head attorney (placeholder — final portrait pending)"
+                      className="w-full h-full object-cover"
+                    />
         </motion.div>
       </div>
     </section>
