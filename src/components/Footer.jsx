@@ -4,7 +4,7 @@ import logo from '../assets/images/logo.jpeg'
 export default function Footer() {
   return (
     <footer className="bg-navy-deep text-mist py-12 border-t border-mist/10">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-10">
         <div>
           <Link to="/" className="flex items-center gap-3 mb-3">
             <img src={logo} alt="Tlotleng Attorneys logo" className="h-8 w-auto" />
@@ -37,6 +37,24 @@ export default function Footer() {
             <Link to="/services#raf-claims" className="hover:text-accent-light transition-colors">RAF Claims</Link>
             <Link to="/services#family-law" className="hover:text-accent-light transition-colors">Family Law</Link>
           </nav>
+        </div>
+
+        <div>
+          <p className="font-body text-sm text-ivory uppercase tracking-wide mb-3">
+            Contact
+          </p>
+          <div className="flex flex-col gap-2 font-body text-sm">
+            <a href="tel:0180120017" className="hover:text-accent-light transition-colors">
+              018 012 0017
+            </a>
+            <a href="tel:0659371560" className="hover:text-accent-light transition-colors">
+              065 937 1560
+            </a>
+            <a href="mailto:info@tlotlenglaw.co.za" className="hover:text-accent-light transition-colors">
+              info@tlotlenglaw.co.za
+            </a>
+            <p>1A North Street<br />Klerksdorp, 2571</p>
+          </div>
         </div>
       </div>
 
