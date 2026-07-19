@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import headshot from '../assets/images/Law1.jpeg'
+import tshepoPhoto from '../assets/images/Law1.jpeg'
 
 export default function About() {
   return (
@@ -14,10 +14,10 @@ export default function About() {
           className="relative aspect-[4/5] overflow-hidden bg-navy/5"
         >
           <img
-            src={headshot}
-            alt="Tshepo Tlotleng, founder and head attorney (placeholder — final portrait pending)"
-            className="w-full h-full object-cover"
-          />
+                                src={tshepoPhoto}
+                                alt="Tshepo Tlotleng, founder and head attorney (placeholder — final portrait pending)"
+                                className="w-full h-full object-cover"
+                              />
           <span className="absolute bottom-3 right-3 bg-navy/80 text-ivory text-xs font-body px-2.5 py-1 rounded">
             Placeholder photo
           </span>
